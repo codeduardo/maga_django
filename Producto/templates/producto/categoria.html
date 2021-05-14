@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="banner">
+    <div class="gradient"></div>
+     <div class="container">
+         <div class="row">
+            <div class="col-sm-12 heading">
+               <h1 data-aos="fade-right" data-aos-delay="300">Bienvenido a la seccion productos</h1>
+               <h2 data-aos="fade-left" data-aos-delay="300">miles de productos esperando por ti </h2>
+            </div>  
+         </div>
+     </div>
+</header>
+
+<section class="container flex text-center">
+        
+    {% if productos %}
+        {% for producto in productos %}             
+            
+        <div class="columna fnaranja blanco ">
+            <h2 class="bold mayuscula">{{producto.nombre}}</h2>  
+            <hr>
+            <div class="lgrande mayuscula ">
+                <p>{{producto.precio}}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+    {% else%}
+        <h1 class="lgrande text-center">No hay productos</h1>
+    {% endif %}
+        
+    
+</section>
+
+<section>
+    <div style="width:80%;  margin:auto; text-align:center; color:#333;">
+        
+        Categorias: 
+            {% for categoria in list_categorias %}
+                <a href="{% url 'Categoria' categoria.id %}">{{categoria.nombre}} &nbsp; || &nbsp;</a> 
+            {% endfor %}
+    </div>
+</section>
+
+
+{% endblock content %}
+    

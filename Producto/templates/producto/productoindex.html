@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<header class="banner">
+    <div class="gradient"></div>
+     <div class="container">
+         <div class="row">
+            <div class="col-sm-12 heading">
+               <h1 data-aos="fade-right" data-aos-delay="300">Bienvenido a la seccion productos</h1>
+               <h2 data-aos="fade-left" data-aos-delay="300">miles de productos esperando por ti </h2>
+            </div>  
+         </div>
+     </div>
+</header>
+
+
+
+<section class="Subscribe " data-aos="fade-up">
+    <div class="container">
+        <div class="col-lg-8 col-sm-6 col1">
+            <form action="{% url 'Buscador' %}" method="POST">
+            <div class="input-group">
+                {% csrf_token %}
+                <table>
+                    {{ formulario.as_table}}
+                </table>
+                <input class="btn btn-info" type="submit" value="BUSCAR">
+            </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="container flex text-center">
+        
+    {% if productos %}
+        {% for producto in productos %}             
+            
+        <div class="columna fnaranja blanco ">
+            <h2 class="bold mayuscula">{{producto.nombre}}</h2>  
+            <h3 class=" bold mayuscula lgrande">{{producto.autor}}</h3>
+            <hr>
+            <div class="lgrande mayuscula ">
+                <p>{{producto.precio}}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+    {% else%}
+        <h1 class="lgrande text-center">No hay productos</h1>
+    {% endif %}
+        
+    
+</section>
+{% include 'producto/paginator.html' %}
+
+<section>
+    <div style="width:80%;  margin:auto; text-align:center; color:#333;">
+        
+        Categorias: 
+            {% for categoria in categorias %}
+                <a href="{% url 'Categoria' categoria.id %}">{{categoria.nombre}} &nbsp; || &nbsp;</a> 
+            {% endfor %}
+    </div>
+</section>
+
+
+{% endblock content %}
+    

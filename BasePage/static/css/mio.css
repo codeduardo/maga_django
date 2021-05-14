@@ -1,0 +1,68 @@
+.bold{
+    font-weight: bold;
+  }
+  .cabecera{
+    margin-bottom: 20px ;
+  }
+  /* ----------Car------------ */
+  .container{
+    margin: 0 auto;
+    width: 90%;
+  }
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .columna{
+    background: #DA4453;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(146, 37, 105,0.5), rgba(201, 60, 88,0.5));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: #fff;
+    border: 1px solid #333;
+    margin: 20px auto ;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px #888;
+    width: 30%;
+    box-sizing: border-box;
+    height: auto;
+  
+  }
+  
+  .btn-opcion{
+    background: #333;
+    font-size: 25px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+  }
+  .btn-opcion i{
+    color: white;
+  }
+  
+  .mayuscula {
+    text-transform: uppercase;
+  }
+  .lgrande{
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  @media (max-width:1070px){
+    .columna{
+      width: 45%;
+      margin-bottom: 20px ;
+    }
+  }
+  
+  @media (max-width:600px){
+    .columna{
+      width: 100%;
+      margin-bottom: 20px ;
+    }
+  }
